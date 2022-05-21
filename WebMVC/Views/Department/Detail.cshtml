@@ -1,0 +1,36 @@
+﻿@model CORE_LAYER.Dtos.DepartmentwithEmployeeDto
+
+@{
+    ViewData["Title"] = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Employees in the @Html.DisplayFor(model => model.Name) Department</h1>
+
+
+<table>
+    <tr>
+        <th>
+            Adı
+        </th>
+        <th>
+            Soyadı
+        </th>
+    </tr>
+    @foreach (var item in Model.employeeDtos)
+    {
+        <tr>
+            <td>
+                @item.Name
+            </td>
+            <td>
+                @item.LastName
+            </td>
+        </tr>
+    }
+</table>
+
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a>
+</div>
